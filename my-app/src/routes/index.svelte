@@ -25,7 +25,10 @@ let credit_mindValue= false;
 let yearerr;
 let montherr;
 function saveCard(){
-        CCchek();
+        let error=CCchek();
+        if(error== false){
+            return false;
+        }
         
             if (credit_mindValue){
                 let cardDate=
@@ -46,30 +49,30 @@ function saveCard(){
         } 
     
 }
-let error;
+
 function prettify() {
         cardnumber =cardnumber.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
         }
 
 function CCchek (){
-    if(ccmonth.length< 2){
-        ccmonth= '0'+ccmonth;
-    }
     let numyear=Number(ccyear);
     let nummoth=Number(ccmonth);
     const date2 = new Date;
+    if(ccmonth.length< 2){
+        ccmonth= '0'+ccmonth;
+    }
+    console.log(yearerr, montherr, numyear,nummoth, date2.getMonth()+1,date2.getFullYear()%100);
     console.log(date2.getMonth()+1)
-    if(numyear<22 ){
-        yearerr.target.setCustomValidity('Карта устарела');
-    }
     if(nummoth>12 ){
-        montherr.target.setCustomValidity('невозможно');
+        return false;
     }
-    if(nummoth< date2.getMonth()+1 && numyear<= date2.getFullYear()%100 ){
-        yearerr.target.setCustomValidity('Карта устарела');
-        montherr.target.setCustomValidity('Карта устарела');
+    if(numyear< date2.getFullYear()%100 ){
+        return false;
     }
-    
+    if(numyear<= date2.getFullYear()%100 && nummoth< date2.getMonth()+1 ){
+        return false;
+    }
+    return true;
 }
 
 
