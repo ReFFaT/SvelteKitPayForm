@@ -69,7 +69,7 @@ function CCchek (){
     if(numyear< date2.getFullYear()%100 ){
         return false;
     }
-    if(numyear<= date2.getFullYear()%100 && nummoth< date2.getMonth()+1 ){
+    if(numyear<= (date2.getFullYear()%100) && nummoth< (date2.getMonth()+1) ){
         return false;
     }
     return true;
