@@ -24,6 +24,7 @@ let CVVCVC="";
 let credit_mindValue= false;
 let yearerr;
 let montherr;
+let errValue='';
 function saveCard(){
         let error=CCchek();
         if(error== false){
@@ -64,12 +65,15 @@ function CCchek (){
     console.log(yearerr, montherr, numyear,nummoth, date2.getMonth()+1,date2.getFullYear()%100);
     console.log(date2.getMonth()+1)
     if(nummoth>12 ){
+        errValue='Невозможное значение месяца!!!'
         return false;
     }
     if(numyear< date2.getFullYear()%100 ){
+        errValue='Карта устарела!!!'
         return false;
     }
     if(numyear<= (date2.getFullYear()%100) && nummoth< (date2.getMonth()+1) ){
+        errValue='Карта устарела!!!'
         return false;
     }
     return true;
@@ -132,6 +136,7 @@ function CCchek (){
                                 <label class=""  for=""> / </label>
                                 <input maxlength="2" id="ccyear" bind:value={ccyear} bind:this={yearerr} class="card-front__year inputmode card-front__date-st" pattern="[0-9]{'{2}'}"
                                 required  autocomplete="cc-exp-year" type="text" placeholder="ГГ">
+                                <p> {errValue}</p>
                             </div>
                             
                         </div>
@@ -163,5 +168,13 @@ function CCchek (){
     
     
     <style>
-    
+    .card-front__date-wrap p{
+        margin: 0;
+        text-align: center;
+        font-family: "Bambino-Light", sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        padding: 4px 0 0 4px;
+        color:rgba(245, 12, 12, 0.767);
+    }
     </style>
